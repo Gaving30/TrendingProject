@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCMdKmGIR1KtgT-WKr82j6HM3O4n-Nl2MI&sensor=false"></script>
+
+    <script type="text/javascript">
+        var map;
+        var markersArray = [];
+
+        function initMap()
+        {
+            var latlng = new google.maps.LatLng(41, 29);
+            var myOptions = {
+                zoom: 5,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+            // add a click event handler to the map object
+            google.maps.event.addListener(map, "click", function(event)
+            {
+                // place a marker
+                placeMarker(event.latLng);
+
+                // display the lat/lng in your form's lat/lng fields
+                document.getElementById("latFld").value = event.latLng.lat();
+                document.getElementById("lngFld").value = event.latLng.lng();
+            });
+        }
+        function placeMarker(location) {
+            // first remove all markers if there are any
+            deleteOverlays();
+
+            var marker = new google.maps.Marker({
+                position: location, 
+                map: map
+            });
+
+            // add marker in markers array
+            markersArray.push(marker);
+
+            //map.setCenter(location);
+        }
+
+        // Deletes all markers in the array by removing references to them
+        function deleteOverlays() {
+            if (markersArray) {
+                for (i in markersArray) {
+                    markersArray[i].setMap(null);
+                }
+            markersArray.length = 0;
+            }
+        }
+    </script>
+    
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <title>Trending Topics</title>
+        <link rel="stylesheet" type="text/css" href="http://localhost:8080/TrendingProject/css/main.css" />
+    
+        <script src="js/modernizr-1.5.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="tagCloud.js"></script>
+      
+        <script>
+            $(document).ready(function() {                   // When the HTML DOM is ready loading, then execute the following function...
+                $('#trend').click(function() {               // Locate HTML DOM element with ID "somebutton" and assign the following function to its "click" event...
+                    $.get('trend', function(responseText) { // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
+                        $('#list').html(responseText);         // Locate HTML DOM element with ID "somediv" and set its text content with the response text.
+                    });
+                });
+                
+                $('#soccer-news').click(function() {         
+                    $.get('soccerheadlines', function(responseText) { 
+                        $('#list').html(responseText);        
+                        });
+                    });
+                });                                
+        </script>
+        
+        <script>
+            function toggle_visibility(id,idb) {
+            var e = document.getElementById(id);
+            var f = document.getElementById(idb);
+            if(e.style.display == 'block'){
+            
+                e.style.display = 'none';
+                f.style.display = 'block';
+            }
+            else{
+                e.style.display = 'block';
+                f.stylye.display= 'none';
+            }
+            }
+        </script>
+       
+    </head>
+
+    <body onload="initMap()">
+        
+        <div id='container'>
+            <div id='header'>
+                <h1 id='headertext'>Tag Along News</h1>
+                <!--<button id="trend">Trending News</button>-->
+                <ul id="garagedoor">
+                    <li id="shutter1"><a id="trend" href="#"></a></li>
+                    <li id="shutter2"><a onclick="(toggle_visibility('map_canvas'))" href="#"></a></li>
+                    <li id="shutter3"><a id="soccer-news"href="#"></a></li>
+                </ul>
+            </div>
+            <div id="content">
+                <div id="map_canvas"></div>
+                <input type="text" id="latFld">
+                <input type="text" id="lngFld">
+                <div id="list" style="display:none">
+                    <!--content goes here-->
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

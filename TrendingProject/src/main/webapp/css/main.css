@@ -1,0 +1,196 @@
+#header,#footer,#content {
+    margin-bottom: 1%;
+    padding-bottom: 1%;
+    background-color: lightgrey;
+}
+
+#garagedoor {
+    margin: 15px auto;
+    list-style: none;
+    background: url(../images/menu-bg.jpg) no-repeat;
+    width: 80%;
+    overflow: auto;	
+}
+
+#garagedoor li {
+    width: 32%;
+    height: 40%;
+    display: block;
+    float: left;
+}
+
+#content{
+    
+    position: absolute;
+    float: left;
+    background-color: antiquewhite;
+    margin:0 auto;
+    height: 55%;
+    width: 79%;
+    
+   }
+
+   #list, #map_canvas{
+    float: left;
+    position: relative;
+    background-color: antiquewhite;
+    margin:0 auto;
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+   }
+   
+   
+#list ul, #list li{
+    float: left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    font-size:0.575em;
+}
+
+#list a{
+    position:absolute;
+    text-decoration: none;
+    font-size:0.575em;
+    color:#000099;
+}
+
+#list a:hover{
+    color:blue;
+}
+/* Modernizer Enabled */
+.csstransitions #garagedoor li {
+    -webkit-transition: background-position 0.6s ease;
+    -moz-transition: background-position 0.6s ease;
+    -o-transition-property: background-position 0.0s ease;
+}
+
+.csstransitions #garagedoor li:hover {
+    background-position: 0 -100px !important;
+}
+ 
+#garagedoor li#shutter1 {
+    background: url(../images/shutter-news.jpg) 0 0 no-repeat; 
+}
+
+#garagedoor li#shutter2 {
+    background: url(../images/shutter-entertainment.jpg) 0 0 no-repeat; 
+}
+
+#garagedoor li#shutter3 {
+    background: url(../images/shutter-sport.jpg) 0 0 no-repeat; 
+}
+
+#garagedoor a {
+   width: 102%;
+   height: 110px;
+   display: block;
+   background: url(../images/window.png) no-repeat bottom center;
+   text-indent: -9999px;
+}
+
+#headertext { 
+    text-align: center;
+    font-size: 40px; 
+    font-family: Verdana; 
+    color: brown;
+}
+
+#container { 
+    width: 80% ; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+#header { 
+    position: relative;  
+    width: 80%;
+    margin-left: 2%;
+}
+
+#content {
+    float: left; 
+    width: 80%;
+    margin-left: 2%;
+}
+
+#footer { 
+    clear: both;
+}
+
+ul#navmenu { 
+    float: left; 
+    list-style-type: none; 
+    background-color: black; 
+    width:100%
+}
+
+ul#navmenu li { 
+    float: left;
+}
+
+ul#navmenu li a { 
+    float: left; 
+    text-decoration: none; 
+    color: black;
+}
+
+ul#navmenu li a:hover { 
+    text-decoration: underline;
+}
+
+#cof {
+    max-width:100%;
+}
+
+#content h2 {
+    color:brown
+}
+
+#content h3 {
+    color:brown
+}	  
+	  
+body { 
+    font-size: 100%;
+    line-height: 1.2
+}
+
+h1, h2, h3, li, p {
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+table tr td {
+    padding:3px;
+    text-align:right
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+ul#sidemenu li:before{
+    color: #666666;
+    content: "\2794";
+    font-size:0.9em; 
+    padding-right: 2px;
+}
+
+ol, ul {
+    list-style: none;
+}
+	
+ol, ul, li{
+    padding-left:0;
+    margin-left:0;
+    margin-right: 0;
+}
